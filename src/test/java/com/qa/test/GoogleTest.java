@@ -15,7 +15,8 @@ public class GoogleTest {
 	@BeforeMethod
 	public void setUp()
 	{
-		System.setProperty("webdriver.chrome.driver","D:\\DEV\\CJP\\Practice-2024\\EclipseWorkspace\\Git-CodePull\\Project-1\\TestRepoDemo\\src\\test\\resources\\drivers\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver","D:\\DEV\\CJP\\Practice-2024\\EclipseWorkspace\\Git-CodePull\\Project-1\\TestRepoDemo\\src\\test\\resources\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","src/test/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
