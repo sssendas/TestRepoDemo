@@ -48,8 +48,10 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.13.0</version>
 				<configuration>
-					<source>${jdk.level}</source>
-					<target>${jdk.level}</target>
+					<!--suppress UnresolvedMavenProperty -->
+                    <source>${jdk.level}</source>
+					<!--suppress UnresolvedMavenProperty -->
+                    <target>${jdk.level}</target>
 				</configuration>
 		</plugin>
          
