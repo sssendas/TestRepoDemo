@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">  
+<suite name = "Test Maven Suite">  
+  <test name = "Test Maven Testing">  
+   <!-- <classes>
+    	<class name = "com.qa.test.JavaDemo2"/>
+    	<class name = "com.qa.test.JavaDemo"/>
+    </classes>  -->
+    
+    <packages>  
+      <package name="com.qa.test"/> 
+      
+    </packages>
+  </test>
+</suite>
