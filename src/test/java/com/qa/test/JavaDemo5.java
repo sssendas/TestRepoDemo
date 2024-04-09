@@ -3,7 +3,7 @@ package com.qa.test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JavaDemo4 {
+public class JavaDemo5 {
 	
 	@Test
 	public void sum()

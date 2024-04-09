@@ -22,9 +22,14 @@ public class JavaDemo3 {
 		int a = 20;
 		int b = 10;
 		
+		int c = 40;
+		
 		Assert.assertEquals(10,(a-b));
 		
+		Assert.assertEquals(-20,(a-c));
+		
 		System.out.println("JavaDemo3 Sub ran successfully with result: "+(a-b));
+		System.out.println("JavaDemo3 Sub ran successfully with new result: "+(a-c));
 	}
 	
 	@Test
