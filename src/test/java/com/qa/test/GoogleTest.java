@@ -2,6 +2,7 @@ package com.qa.test;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -30,13 +31,31 @@ public class GoogleTest {
 		//driver.get("https://www.google.com");
 		driver.navigate().to("https://www.google.com");
 		System.out.println("The page title is: "+driver.getTitle());
+		
+		try {
+			Thread.sleep(2000);
+		}
+		catch (Exception e)
+		{
+			
+		}
+		
+		driver.findElement(By.xpath("//textarea[@title='Search']")).sendKeys("wikipedia");
+		try {
+			Thread.sleep(2000);
+		}
+		catch (Exception e)
+		{
+			
+		}
+		driver.findElement(By.xpath("//input[@role='button' and @type='submit' and @value='Google Search']")).click();
 	}
 	
 	@AfterMethod
 	public void tearDown()
 	{
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 		}
 		catch (Exception e)
 		{
