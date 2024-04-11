@@ -3,7 +3,7 @@
 <suite name = "Test Maven Suite">  
   <test name = "Test Maven Testing">  
     <classes>
-    	<class name = "com.qa.test.GoogleTest"/>
+    	<class name = "com.qa.test.TestNGDataProviderDemo"/>
     </classes>
     
     <!-- <packages>  
