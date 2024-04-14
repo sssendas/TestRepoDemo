@@ -1,9 +1,11 @@
 package com.qa.test;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -40,7 +42,7 @@ public class GoogleTest {
 			
 		}
 		
-		driver.findElement(By.xpath("//textarea[@title='Search']")).sendKeys("wikipedia");
+		driver.findElement(By.xpath("//textarea[@title='Search']")).sendKeys("wiki");
 		try {
 			Thread.sleep(2000);
 		}
@@ -48,7 +50,35 @@ public class GoogleTest {
 		{
 			
 		}
-		driver.findElement(By.xpath("//input[@role='button' and @type='submit' and @value='Google Search']")).click();
+		
+		List<WebElement> webEleList = driver.findElements(By.xpath("//ul[@role='listbox']//li/descendant::div[@class='eIPGRd']"));
+		
+		System.out.println("Number of suggestions found: "+webEleList.size());
+		
+		for(int i = 0;i<webEleList.size();i++)
+		{
+			System.out.println("Available suggestions are: "+webEleList.get(i).getText());
+			
+		}
+		
+		for(int i = 0;i<webEleList.size();i++)
+		{
+			if (webEleList.get(i).getText().contains("WikiLeaks"))
+			{
+				webEleList.get(i).click();
+				break;
+			}
+		}
+		
+		
+		
+		//List<WebElement> webEleList1 = driver.findElements(By.xpath("//ul[@role='listbox']/descendant::li[@data-entityname='wiki<b>pedia</b>']"));
+		//System.out.println("Number of suggestions found: "+webEleList1.size());
+		
+		//driver.findElement(By.xpath("//ul[@role='listbox']/descendant::li[@data-entityname='wiki<b>pedia</b>']")).click();
+		
+		//driver.findElement(By.xpath("//ul[@role='listbox']/decendant::li[@data-entityname='wiki<b>how</b>']"));
+		//driver.findElement(By.xpath("//input[@role='button' and @type='submit' and @value='Google Search']")).click();
 	}
 	
 	@AfterMethod

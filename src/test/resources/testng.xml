@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">  
 <suite name = "Test Maven Suite">  
-  <test name = "Test Maven Testing">  
+  <test name = "Test Maven Testing" thread-count="4" parallel="methods" verbose="5">  
     <classes>
     	<class name = "com.qa.test.TestNGDataProviderDemo"/>
     </classes>

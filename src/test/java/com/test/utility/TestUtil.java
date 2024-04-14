@@ -3,7 +3,10 @@ package com.test.utility;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -12,15 +15,15 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class TestUtil {
 	
 	public static String TEST_DATASHEET_PATH = "src/test/resources/files/TestData.xlsx";
+
 	static Workbook book;
 	static Sheet sheet;
-	static File f;
 	static FileInputStream fis;
-	
 	
 	public static Object[][] getDataFromExcel(String sheetName)
 	{
-		f = new File(TEST_DATASHEET_PATH);
+		
+		File f = new File(TEST_DATASHEET_PATH);
 		
 		try
 		{
@@ -52,6 +55,44 @@ public class TestUtil {
 		}
 		
 		return data;
+		
+	}
+	
+	public void writeExcelData()
+	{
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss");
+		LocalDateTime now = LocalDateTime.now();
+		String currentTime = dtf.format(now);
+		FileOutputStream fos;
+		FileInputStream fis;
+		Workbook newBook;
+		
+		
+		
+		String fileLocation = "src/test/resources/files/Result_"+currentTime+".xlsx";
+		
+		try
+		{
+			fos = new FileOutputStream(fileLocation);
+			fos.close();
+			System.out.println("New File generated successfully at "+fileLocation);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("Couldn't generate file");
+		}
+		
+		try
+		{
+			fis = new FileInputStream(fileLocation);
+			newBook = WorkbookFactory.create(fis);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 

@@ -35,7 +35,7 @@ public class TestNGDataProviderDemo {
 		System.out.println("The page open with title is: "+driver.getTitle());
 	}
 	
-	@Test (dataProvider = "getTestData")
+	@Test (dataProvider = "dp")
 	public void faceBookLogin(String email, String password)
 	{
 		//Explicit wait
@@ -77,8 +77,186 @@ public class TestNGDataProviderDemo {
 		driver.findElement(By.xpath("//button[@name='login']")).click();
 	}
 	
-	@DataProvider
+	
+	@Test (dataProvider = "dp1")
+	public void faceBookLogin1(String email, String password)
+	{
+		//Explicit wait
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(40));
+		
+		
+		
+		//Enter data
+		WebElement emailEntry = driver.findElement(By.xpath("//input[@name='email' and @placeholder='Email address or phone number']"));
+		WebElement passEntry = driver.findElement(By.xpath("//input[@name='pass' and @placeholder='Password']"));
+		
+		wait.until(ExpectedConditions.visibilityOf(emailEntry));
+		wait.until(ExpectedConditions.visibilityOf(passEntry));
+		
+		emailEntry.clear();
+		emailEntry.sendKeys(email);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		passEntry.clear();
+		passEntry.sendKeys(password);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		driver.findElement(By.xpath("//button[@name='login']")).click();
+	}
+	
+	@Test (dataProvider = "dp")
+	public void faceBookLogin2(String email, String password)
+	{
+		//Explicit wait
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(40));
+		
+		
+		
+		//Enter data
+		WebElement emailEntry = driver.findElement(By.xpath("//input[@name='email' and @placeholder='Email address or phone number']"));
+		WebElement passEntry = driver.findElement(By.xpath("//input[@name='pass' and @placeholder='Password']"));
+		
+		wait.until(ExpectedConditions.visibilityOf(emailEntry));
+		wait.until(ExpectedConditions.visibilityOf(passEntry));
+		
+		emailEntry.clear();
+		emailEntry.sendKeys(email);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		passEntry.clear();
+		passEntry.sendKeys(password);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		driver.findElement(By.xpath("//button[@name='login']")).click();
+	}
+	
+	@Test (dataProvider = "dp")
+	public void faceBookLogin3(String email, String password)
+	{
+		//Explicit wait
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(40));
+		
+		
+		
+		//Enter data
+		WebElement emailEntry = driver.findElement(By.xpath("//input[@name='email' and @placeholder='Email address or phone number']"));
+		WebElement passEntry = driver.findElement(By.xpath("//input[@name='pass' and @placeholder='Password']"));
+		
+		wait.until(ExpectedConditions.visibilityOf(emailEntry));
+		wait.until(ExpectedConditions.visibilityOf(passEntry));
+		
+		emailEntry.clear();
+		emailEntry.sendKeys(email);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		passEntry.clear();
+		passEntry.sendKeys(password);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		driver.findElement(By.xpath("//button[@name='login']")).click();
+	}
+	
+	@Test (dataProvider = "getTestData")
+	public void faceBookLogin4(String email, String password)
+	{
+		//Explicit wait
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(40));
+		
+		
+		
+		//Enter data
+		WebElement emailEntry = driver.findElement(By.xpath("//input[@name='email' and @placeholder='Email address or phone number']"));
+		WebElement passEntry = driver.findElement(By.xpath("//input[@name='pass' and @placeholder='Password']"));
+		
+		wait.until(ExpectedConditions.visibilityOf(emailEntry));
+		wait.until(ExpectedConditions.visibilityOf(passEntry));
+		
+		emailEntry.clear();
+		emailEntry.sendKeys(email);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		passEntry.clear();
+		passEntry.sendKeys(password);
+		
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		driver.findElement(By.xpath("//button[@name='login']")).click();
+	}
+	
+	@DataProvider(name = "dp")
 	public Object[][] getTestData()
+	{
+		String sheetName = "LoginCreds";
+		Object[][] data = TestUtil.getDataFromExcel(sheetName);
+		return data;
+		
+	}
+	
+	@DataProvider(name = "dp1")
+	public Object[][] getTestData1()
 	{
 		String sheetName = "LoginCreds";
 		Object[][] data = TestUtil.getDataFromExcel(sheetName);
